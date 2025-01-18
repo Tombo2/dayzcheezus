@@ -27,22 +27,23 @@ modded class MissionGameplay
         return layoutRoot;
     }
 
-    override void OnUpdate(float timeslice)
-    {
-        super.OnUpdate(timeslice);
+	override void OnUpdate(float timeslice)
+	{
+		super.OnUpdate(timeslice);
 
-        if (GetGame().GetInput().LocalPress("UACraftingGuide")) // Check for hotkey press
-        {
-            if (!m_IsCraftingGuideOpen)
-            {
-                ShowCraftingGuide();
-            }
-            else
-            {
-                HideCraftingGuide();
-            }
-        }
-    }
+		// Use CF's keybinding check
+		if (CF_Keybinds.Get().WasKeyPressed("ToggleCraftingGuide"))
+		{
+			if (!m_IsCraftingGuideOpen)
+			{
+				ShowCraftingGuide();
+			}
+			else
+			{
+				HideCraftingGuide();
+			}
+		}
+	}
 
     void ShowCraftingGuide()
     {
